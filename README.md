@@ -1,7 +1,7 @@
 # 2020-Robot-Java-Template
  
 
-Hi to whoever's reading this, probably someone on FRC 5113, the Combustible Lemons. 
+Hi to whomever's reading this, probably someone on FRC 5113, the Combustible Lemons. 
 My name's Vinay, and I was the lead of Software on the team for two years, and the
 co-president for one. I really enjoyed robotics when I was part of the team, and 
 I'm going to make sure to properly comment this template and explain everything 
