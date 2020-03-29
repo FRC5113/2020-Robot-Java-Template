@@ -1,0 +1,43 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
+package frc.robot;
+
+/**
+ * The Constants class provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants. This class should not be used for any other
+ * purpose. All constants should be declared globally (i.e. public static). Do
+ * not put anything functional in this class.
+ *
+ * <p>
+ * It is advised to statically import this class (or one of its inner classes)
+ * wherever the constants are needed, to reduce verbosity.
+ * 
+ * In short, programmers are lazy, and they don't want to change a value
+ * everywhere it exists (like a motor ID or something), so they do this, so they
+ * can change it in just one place.
+ */
+public final class Constants {
+
+   public final static class DriveTrainConstants {
+
+      // DRIVETRAIN ID'S
+      // first digit is whether it is a master, second is if it's on the left side; 1
+      // is no, 2 is yes
+      public static final int LEFT_MASTER_ID = 22;
+      public static final int RIGHT_MASTER_ID = 21;
+      public static final int LEFT_SLAVE_ID = 12;
+      public static final int RIGHT_SLAVE_ID = 11;
+
+      // MISC CONSTANTS
+      public static final double RAMP_RATE = 0.5;
+      public static final double DEADBAND = 0.05;
+      public static final double VOLTAGE_COMPENSATION = 12.3;
+
+   }
+
+}
