@@ -36,10 +36,20 @@ public class RobotContainer {
       configureButtonBindings();
    }
 
+   /**
+    * Getter for the value on the left stick.
+    * 
+    * @return The y-value of the left Joystick.
+    */
    public double getLeftStickValue() {
       return leftStick.getRawAxis(1);
    }
 
+   /**
+    * Getter for the value on the right stick.
+    * 
+    * @return The y-value of the right Joystick.
+    */
    public double getRightStickValue() {
       return rightStick.getRawAxis(1);
    }

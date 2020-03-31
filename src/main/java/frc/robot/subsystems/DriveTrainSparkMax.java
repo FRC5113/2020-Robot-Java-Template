@@ -48,6 +48,12 @@ public class DriveTrainSparkMax {
       rightSide.setPosition(0);
       rightSide.setInverted(true);
 
+      leftSide.setPositionConversionFactor(POSITION_CONVERSION_NEO);
+      rightSide.setPositionConversionFactor(POSITION_CONVERSION_NEO);
+
+      leftSide.setVelocityConversionFactor(POSITION_CONVERSION_NEO);
+      rightSide.setVelocityConversionFactor(POSITION_CONVERSION_NEO);
+
       driveBase = new DifferentialDrive(leftMaster, rightMaster);
       driveBase.setDeadband(DEADBAND);
 
@@ -84,8 +90,35 @@ public class DriveTrainSparkMax {
 
    public void curvatureDrive(double speed, double rotation) {
       // Curvature drive is subset of arcade drive seems interesting ... I'll try
-      // testing it later
-      driveBase.curvatureDrive(speed, rotation, false);
+      // testing it
+      driveBase.curvatureDrive(speed, rotation, true);
+
+      /**
+       * These should help to control curvature drive, but testing needs to be done
+       * driveBase.setQuickStopAlpha(something);
+       * driveBase.setQuickStopThreshold(something);
+       */
+   }
+
+   public void triggerDrive(double forward, double reverse, double rotation) {
+      // Basically how driving works in Forza, uses triggers
+      driveBase.arcadeDrive(forward-reverse, rotation);
+   }
+
+   public double getLeftPos() {
+      return leftSide.getPosition();
+   }
+
+   public double getRightPos() {
+      return rightSide.getPosition();
+   }
+
+   public double getLeftVel() {
+      return leftSide.getVelocity();
+   }
+
+   public double getRightVel() {
+      return rightSide.getVelocity();
    }
 
    public void setAllToCoast() {

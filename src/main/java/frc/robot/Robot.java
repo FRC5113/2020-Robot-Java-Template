@@ -23,16 +23,20 @@ import frc.robot.commands.DriveCommand;
 public class Robot extends TimedRobot {
    private RobotContainer robotContainer;
 
+   /**
+    * When the robot is initialized, this method is called
+    */
    @Override
-   // As soon as the code is deployed, this happens
    public void robotInit() {
       // You always want to create a new RobotContainer,
       // It's where the majority of the robot is "handled"
       robotContainer = new RobotContainer();
    }
 
+   /**
+    * No matter what's happening, this method is called
+    */
    @Override
-   // No matter what state the robot is in, this runs
    public void robotPeriodic() {
       // This looks at whatever command is scheduled, and runs it
       CommandScheduler.getInstance().run();
@@ -52,6 +56,7 @@ public class Robot extends TimedRobot {
 
    @Override
    public void autonomousInit() {
+      CommandScheduler.getInstance().schedule(robotContainer.getAutonomousCommand());
    }
 
    @Override
@@ -62,7 +67,7 @@ public class Robot extends TimedRobot {
    public void teleopInit() {
       CommandScheduler.getInstance().cancelAll(); // Cancel whatever you were doing in auton
       // As soon as teleop starts, make sure the drive always works
-      // The () -> notation is a lambda ... just look it up, I'm too lazy to explain
+      // The () -> notation is a lambda ... just look it up, I can't explain as well as google
       robotContainer.driveTrain.setDefaultCommand(new DriveCommand(() -> robotContainer.getLeftStickValue(),
             () -> robotContainer.getRightStickValue(), robotContainer.driveTrain));
    }

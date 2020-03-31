@@ -85,7 +85,34 @@ public class DriveTrainFalcon extends SubsystemBase {
    public void curvatureDrive(double speed, double rotation) {
       // Curvature drive is subset of arcade drive seems interesting ... I'll try
       // testing it
-      driveBase.curvatureDrive(speed, rotation, false);
+      driveBase.curvatureDrive(speed, rotation, true);
+
+      /**
+       * These should help to control curvature drive, but testing needs to be done
+       * driveBase.setQuickStopAlpha(something);
+       * driveBase.setQuickStopThreshold(something);
+       */
+   }
+
+   public void triggerDrive(double forward, double reverse, double rotation) {
+      // Basically how driving works in Forza, uses triggers
+      driveBase.arcadeDrive(forward - reverse, rotation);
+   }
+
+   public double getLeftPos() {
+      return leftMaster.getSelectedSensorPosition()*POSITION_CONVERSION_FALCON;
+   }
+
+   public double getRightPos() {
+      return rightMaster.getSelectedSensorPosition()*POSITION_CONVERSION_FALCON;
+   }
+
+   public double getLeftVel() {
+      return leftMaster.getSelectedSensorVelocity()*POSITION_CONVERSION_FALCON;
+   }
+
+   public double getRightVel() {
+      return rightMaster.getSelectedSensorPosition()*POSITION_CONVERSION_FALCON;
    }
 
    public void setAllToCoast() {
