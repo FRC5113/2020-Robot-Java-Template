@@ -23,6 +23,10 @@ package frc.robot;
  */
 public final class Constants {
 
+   public final static class GeneralConstants {
+      public static final double VOLTAGE_COMPENSATION = 12.3;
+   }
+
    // Each subsystem's motor ID's should start with different numbers.
    public final static class DriveTrainConstants {
       // DRIVETRAIN ID'S
@@ -36,7 +40,6 @@ public final class Constants {
       // MISC CONSTANTS
       public static final double RAMP_RATE = 0.5;
       public static final double DEADBAND = 0.05;
-      public static final double VOLTAGE_COMPENSATION = 12.3;
 
       // CONVERSIONS CONSTANTS
       public static final double FALCON_ENCODER_CPR = 2048;
@@ -46,16 +49,23 @@ public final class Constants {
       public static final double WHEEL_DIAMETER = 6; // inches ofc
       public static final double INCHES_TO_FEET = 1 / 12;
 
-      public static final double POSITION_CONVERSION_FALCON = 1 / FALCON_ENCODER_CPR * GEAR_RATIO * WHEEL_DIAMETER
+      public static final double POSITION_TO_ROTATION_FALCON = 1 / FALCON_ENCODER_CPR * GEAR_RATIO * WHEEL_DIAMETER
             * Math.PI * INCHES_TO_FEET;
-            
-      public static final double POSITION_CONVERSION_NEO = 1 / NEO_ENCODER_CPR * GEAR_RATIO * WHEEL_DIAMETER
-            * Math.PI * INCHES_TO_FEET;
+
+      public static final double POSITION_TO_ROTATION_NEO = 1 / NEO_ENCODER_CPR * GEAR_RATIO * WHEEL_DIAMETER * Math.PI
+            * INCHES_TO_FEET;
    }
 
    public static final class ArmConstants {
-      //ARM ID
+      // ARM ID
       public static final int ARM_ID = 31;
+
+      public static final double FALCON_ENCODER_CPR = 2048;
+      public static final double NEO_ENCODER_CPR = 42;
+
+      public static final double GEAR_RATIO = 0.6969;
+
+      public static final double POSITION_TO_DEGREE_FALCON = 360 / FALCON_ENCODER_CPR * GEAR_RATIO;
    }
 
 }

@@ -68,7 +68,7 @@ public class Robot extends TimedRobot {
       CommandScheduler.getInstance().cancelAll(); // Cancel whatever you were doing in auton
       // As soon as teleop starts, make sure the drive always works
       // The () -> notation is a lambda ... just look it up, I can't explain as well as google
-      robotContainer.driveTrain.setDefaultCommand(new DriveCommand(() -> robotContainer.getLeftStickValue(),
+      robotContainer.driveTrain.setDefaultCommand(new DriveCommand(() -> robotContainer.getDriverLeft(),
             () -> robotContainer.getRightStickValue(), robotContainer.driveTrain));
    }
 

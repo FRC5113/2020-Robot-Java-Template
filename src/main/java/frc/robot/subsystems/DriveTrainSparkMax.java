@@ -9,6 +9,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import static frc.robot.Constants.DriveTrainConstants.*;
+import static frc.robot.Constants.GeneralConstants.*;
+
 
 /**
  * This class is a carbon copy of the DriveTrainFalcon class. They're both
@@ -48,11 +50,11 @@ public class DriveTrainSparkMax {
       rightSide.setPosition(0);
       rightSide.setInverted(true);
 
-      leftSide.setPositionConversionFactor(POSITION_CONVERSION_NEO);
-      rightSide.setPositionConversionFactor(POSITION_CONVERSION_NEO);
+      leftSide.setPositionConversionFactor(POSITION_TO_ROTATION_NEO);
+      rightSide.setPositionConversionFactor(POSITION_TO_ROTATION_NEO);
 
-      leftSide.setVelocityConversionFactor(POSITION_CONVERSION_NEO);
-      rightSide.setVelocityConversionFactor(POSITION_CONVERSION_NEO);
+      leftSide.setVelocityConversionFactor(POSITION_TO_ROTATION_NEO);
+      rightSide.setVelocityConversionFactor(POSITION_TO_ROTATION_NEO);
 
       driveBase = new DifferentialDrive(leftMaster, rightMaster);
       driveBase.setDeadband(DEADBAND);

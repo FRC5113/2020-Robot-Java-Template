@@ -9,6 +9,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.DriveTrainConstants.*;
+import static frc.robot.Constants.GeneralConstants.*;
+
 
 /**
  * This is the subsytem for the drivetrain, assuming it's tank. Which it always
@@ -50,7 +52,6 @@ public class DriveTrainFalcon extends SubsystemBase {
 
       driveBase = new DifferentialDrive(leftMaster, rightMaster);
       driveBase.setDeadband(DEADBAND);
-
    }
 
    private void configureMotor(WPI_TalonFX motor, boolean right) {
@@ -100,19 +101,19 @@ public class DriveTrainFalcon extends SubsystemBase {
    }
 
    public double getLeftPos() {
-      return leftMaster.getSelectedSensorPosition()*POSITION_CONVERSION_FALCON;
+      return leftMaster.getSelectedSensorPosition()*POSITION_TO_ROTATION_FALCON;
    }
 
    public double getRightPos() {
-      return rightMaster.getSelectedSensorPosition()*POSITION_CONVERSION_FALCON;
+      return rightMaster.getSelectedSensorPosition()*POSITION_TO_ROTATION_FALCON;
    }
 
    public double getLeftVel() {
-      return leftMaster.getSelectedSensorVelocity()*POSITION_CONVERSION_FALCON;
+      return leftMaster.getSelectedSensorVelocity()*POSITION_TO_ROTATION_FALCON;
    }
 
    public double getRightVel() {
-      return rightMaster.getSelectedSensorPosition()*POSITION_CONVERSION_FALCON;
+      return rightMaster.getSelectedSensorPosition()*POSITION_TO_ROTATION_FALCON;
    }
 
    public void setAllToCoast() {

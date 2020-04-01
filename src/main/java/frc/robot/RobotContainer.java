@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.DriveTrainFalcon;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -24,9 +25,12 @@ public class RobotContainer {
    // The robot's subsystems and commands are defined here...
 
    public DriveTrainFalcon driveTrain = new DriveTrainFalcon();
+   public ArmFalcon arm = new ArmFalcon();
 
-   public Joystick leftStick = new Joystick(0);
-   public Joystick rightStick = new Joystick(1);
+   public Joystick driverLeft = new Joystick(0);
+   public Joystick driverRight = new Joystick(1);
+
+   public XboxHandler gunnerController = new XboxHandler(2);
 
    /**
     * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -41,8 +45,8 @@ public class RobotContainer {
     * 
     * @return The y-value of the left Joystick.
     */
-   public double getLeftStickValue() {
-      return leftStick.getRawAxis(1);
+   public double getDriverLeft() {
+      return driverLeft.getRawAxis(1);
    }
 
    /**
@@ -51,7 +55,7 @@ public class RobotContainer {
     * @return The y-value of the right Joystick.
     */
    public double getRightStickValue() {
-      return rightStick.getRawAxis(1);
+      return driverRight.getRawAxis(1);
    }
 
    /**
@@ -61,6 +65,8 @@ public class RobotContainer {
     * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
     */
    private void configureButtonBindings() {
+      gunnerController.leftBumper.whileHeld(new ArmPosUp(arm));
+      gunnerController.rightBumper.whileHeld(new ArmPosDown(arm));
    }
 
    /**

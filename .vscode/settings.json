@@ -4,6 +4,8 @@
    "editor.autoClosingBrackets": "always",
    "editor.tabSize": 3,
    "editor.detectIndentation": false,
+   "editor.autoIndent": "advanced",
+   "editor.formatOnType": true,
    "files.exclude": {
       "**/.git": true,
       "**/.svn": true,
